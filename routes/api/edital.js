@@ -12,11 +12,24 @@ const transportador = nodemailer.createTransport({
   }
 })
 
-//======== GET =============
+//========== EM DESENVOLVIMENTO ========
+router.get("/pesquisa", async (req, res) => {
+  try {
+    const all = await Editais.find();
+    if (!all) throw Error("Algo deu errado ao procurar o post!");
+    res.status(200).json(all);
+  } catch (err) {
+    res.status(400).json({
+      msg: err,
+    });
+  }
+});
+
+//======== GET ALL =============
 router.get("/", async (req, res) => {
   try {
     const editais = await Editais.find();
-    if (!editais) throw Error("Algo deu errado ao procurar o post!");
+    if (!editais) throw Error("Algo deu errado ao procurar o edital!");
     res.status(200).json(editais);
   } catch (err) {
     res.status(400).json({
@@ -38,11 +51,10 @@ router.get("/destaques", async (req, res) => {
   }
 });
 
-
 //======== GET 5 LAST CREATED =============
 router.get("/lastFivePostsCreated", async (req, res) => {
   try {
-    const lastFivePosts = await Editais.find().sort("-date").limit(5);
+    const lastFivePosts = await Editais.find().sort({created_at: 'desc'}).limit(5);
     if (!lastFivePosts) throw Error("Algo deu errado ao procurar o edital!");
     res.status(200).json(lastFivePosts);
   } catch (err) {
@@ -55,7 +67,7 @@ router.get("/lastFivePostsCreated", async (req, res) => {
 //======== GET 5 LAST UPDATED =============
 router.get("/lastFivePostsUpdated", async (req, res) => {
   try {
-    const lastFivePosts = await Editais.find().sort("-date").limit(5);
+    const lastFivePosts = await Editais.find().sort({updated_at: 'desc'}).limit(5);
     if (!lastFivePosts) throw Error("Algo deu errado ao procurar o edital!");
     res.status(200).json(lastFivePosts);
   } catch (err) {
@@ -65,7 +77,7 @@ router.get("/lastFivePostsUpdated", async (req, res) => {
   }
 });
 
-//======== GET =============
+//======== GET ENSINO =============
 router.get("/lastfiveEnsino", async (req, res) => {
   try {
     const lastFivePosts = await Editais.find({ label: "Ensino" })
@@ -80,7 +92,7 @@ router.get("/lastfiveEnsino", async (req, res) => {
   }
 });
 
-//======== GET =============
+//======== GET EXTENSÃO=============
 router.get("/lastfiveExtensao", async (req, res) => {
   try {
     const lastFivePosts = await Editais.find({ label: "Extensão" })
@@ -175,13 +187,11 @@ router.patch("/:id", async (req, res) => {
   res.status(200).json(edital);
 });
 
-
-
 //======== PUT =============
 router.put("/:id", async (req, res) => {
   const atualizar = (req.body);
   try {
-    const action = await Editais.findOneAndUpdate(req.params.id, atualizar, {
+    const action = await Editais.findByIdAndUpdate(req.params.id, atualizar, {
       new: true
     });
     //console.log(action);

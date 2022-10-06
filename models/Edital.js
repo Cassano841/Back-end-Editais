@@ -14,20 +14,16 @@ const EditalSchema = new Schema({
         type: String,
         require: true
     },
-    created: {
-        type: Date,
-        default: Date.now
-    },
-    updated: {
-        type: Date,
-        default: Date.now()
-    },
     checked: {
         type: Boolean
     },
     etapas: {
         type: Array,
         default: [Date]
+    },
+    status: {
+        type: String,
+        require: true
     }
 },
     {

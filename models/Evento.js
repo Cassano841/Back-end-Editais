@@ -6,17 +6,12 @@ const EventSchema = new Schema({
         type: String,
         require: true
     },
-    content: {
-        type: String,
-        require: true
-    },
     dataEvento: {
         type: Date,
         require: true
     },
-    dateCriacao: {
-        type: Date,
-        default: Date.now
+    recorrente: {
+        type: Boolean
     }
 },
     {
