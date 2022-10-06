@@ -1,0 +1,59 @@
+[
+  {
+    "title": "[Edital de Extensão número 1]",
+    "content": "edital novo sobre tal assunto",
+    "label": "Extensão",
+    "etapas": {
+      "primeiraEtapa": {
+        "data": "2022-10-01",
+        "nome": "Primeira Etapa do processo"
+      },
+      "segundaEtapa": {
+        "data": "2022-10-05",
+        "nome": "Segunda Etapa do processo"
+      },
+      "terceiraEtapa": {
+        "data": "2022-10-10",
+        "nome": "Terceira Etapa do processo"
+      }
+    }
+  },
+  {
+    "title": "[Edital de Extensão número 2]",
+    "content": "edital novo sobre tal assunto",
+    "label": "Extensão",
+    "etapas": {
+      "primeiraEtapa": {
+        "data": "2022-10-10",
+        "nome": "Primeira Etapa do processo"
+      },
+      "segundaEtapa": {
+        "data": "2022-10-26",
+        "nome": "Segunda Etapa do processo"
+      },
+      "terceiraEtapa": {
+        "data": "2022-10-30",
+        "nome": "Terceira Etapa do processo"
+      }
+    }
+  },
+  {
+    "title": "[Edital de Extensão número 3]",
+    "content": "edital novo sobre tal assunto",
+    "label": "Extensão",
+    "etapas": {
+      "primeiraEtapa": {
+        "data": "2022-10-10",
+        "nome": "Primeira Etapa do processo"
+      },
+      "segundaEtapa": {
+        "data": "2022-10-26",
+        "nome": "Segunda Etapa do processo"
+      },
+      "terceiraEtapa": {
+        "data": "2022-10-30",
+        "nome": "Terceira Etapa do processo"
+      }
+    }
+  }
+]
